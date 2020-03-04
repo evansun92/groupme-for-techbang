@@ -12,10 +12,27 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'create success'
     else
       render :new
     end
+  end
+
+  def edit
+    render :new
+  end
+
+  def update
+    if @group.update(group_params)
+      redirect_to root_path, notice: 'update success'
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @group.destroy
+    redirect_to root_path, notice: 'delete success'
   end
 
   private
