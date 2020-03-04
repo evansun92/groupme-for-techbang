@@ -1,5 +1,25 @@
-<h2><%= @group.title %></h2>
-<p><%= @group.description %></p>
 <div class="group">
   <%= link_to 'Edit', edit_group_path(@group), class: 'btn btn-sm btn-primary' %>
+  <%= link_to 'New Post', new_group_post_path(@group), class: 'btn btn-sm btn-info' %>
+</div>
+
+<h2><%= @group.title %></h2>
+<p><%= @group.description %></p>
+
+<table class="table">
+  <tbody>
+    <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.content %></td>
+      <td>
+        <%= link_to 'Edit', edit_group_post_path(post.group, post), class: 'btn btn-sm btn-outline-primary' %>
+        <%= link_to 'Delete', group_post_path(post.group, post), class: 'btn btn-sm btn-outline-danger', method: 'delete', data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to 'Back to Group', root_path, class: 'btn btn-outline-secondary' %>
 </div>

@@ -18,6 +18,10 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @posts = @group.posts
+  end
+
   def edit
     render :new
   end
