@@ -40,6 +40,26 @@ class GroupsController < ApplicationController
     redirect_to groups_path, notice: 'delete success'
   end
 
+  def join
+    @group = Group.find(params[:id])
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+    else
+      flash[:notice] = 'You already joined this group.'
+    end
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+    else
+      flash[:notice] = 'You are not member of this group.'
+    end
+    redirect_to group_path(@group)
+  end
+
   private
 
   def group_params
