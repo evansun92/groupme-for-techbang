@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
   resources :groups do
     resources :posts
   end
+
+  devise_for :users
 
   root to: 'groups#index'
 end
