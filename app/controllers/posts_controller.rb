@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_group, only: %i[new create edit update destroy]
   before_action :find_post, only: %i[edit update destroy]
 

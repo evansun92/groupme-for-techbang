@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :find_group, only: %i[show edit update destroy]
 
   def index
@@ -10,9 +11,9 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
     if @group.save
-      redirect_to root_path, notice: 'create success'
+      redirect_to groups_path, notice: 'create success'
     else
       render :new
     end
@@ -28,7 +29,7 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      redirect_to root_path, notice: 'update success'
+      redirect_to groups_path, notice: 'update success'
     else
       render :new
     end
@@ -36,7 +37,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    redirect_to root_path, notice: 'delete success'
+    redirect_to groups_path, notice: 'delete success'
   end
 
   private
@@ -46,6 +47,6 @@ class GroupsController < ApplicationController
   end
 
   def find_group
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
   end
 end

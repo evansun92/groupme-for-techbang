@@ -43,6 +43,7 @@ gem 'bootstrap', '~> 4.4', '>= 4.4.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'kaminari', '~> 1.2'
+gem 'devise', '~> 4.7', '>= 4.7.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
