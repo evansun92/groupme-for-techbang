@@ -48,6 +48,9 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capistrano', '~> 3.12'
+  gem 'capistrano-rails', '~> 1.4'
+  gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.6'
 end
 
 group :development do
