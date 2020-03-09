@@ -51,6 +51,7 @@ group :development, :test do
   gem 'capistrano', '~> 3.12'
   gem 'capistrano-rails', '~> 1.4'
   gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.6'
+  gem 'capistrano-passenger', '~> 0.2.0'
 end
 
 group :development do
