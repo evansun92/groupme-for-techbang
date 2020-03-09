@@ -1,5 +1,5 @@
 lock "~> 3.12.0"
-`ssh-add`
+
 set :application, "groupme-for-techbang"
 set :repo_url, "git@github.com:evansun92/groupme-for-techbang.git"
 
