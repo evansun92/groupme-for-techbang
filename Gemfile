@@ -44,6 +44,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'kaminari', '~> 1.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'unicorn', '~> 5.5', '>= 5.5.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,7 +52,7 @@ group :development, :test do
   gem 'capistrano', '~> 3.12'
   gem 'capistrano-rails', '~> 1.4'
   gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.6'
-  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano3-unicorn', '~> 0.2.1'
 end
 
 group :development do
