@@ -11,7 +11,7 @@
     <% end %>
   <% end %>
 
-  <%= link_to 'New Post', new_group_post_path(@group), class: 'btn btn-sm btn-info' if current_user.is_member_of?(@group) %>
+  <%= link_to 'New Post', new_group_post_path(@group), class: 'btn btn-sm btn-info' if current_user.present? && current_user.is_member_of?(@group) %>
 </div>
 
 <h2><%= @group.title %></h2>
