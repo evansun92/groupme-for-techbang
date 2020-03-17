@@ -1,3 +1,5 @@
+`ssh-add`
+
 lock "~> 3.12.0"
 
 set :application, "groupme-for-techbang"
